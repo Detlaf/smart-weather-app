@@ -35,6 +35,7 @@ app.layout = html.Div([
     ], className='user-input'),
 
     html.Div([
+        html.Div(id="weather-description"),
         html.Div(id="temperature"),
         html.Div(id="humidity"),
         html.Div(id="wind"),
@@ -45,7 +46,8 @@ app.layout = html.Div([
     ], className='results-output')
 ])
 
-@app.callback([Output('temperature', 'children'),
+@app.callback([Output('weather-description', 'children'),
+               Output('temperature', 'children'),
                Output('humidity', 'children'),
                Output('wind', 'children'),
                Output('pressure', 'children'),
@@ -57,23 +59,14 @@ def update_output(n_clicks, input):
     icon_path = weather_data['weather']['icon'] + '.png'
     return(
         [
+            "Сегодня {}".format(weather_data['weather']['description']),
             "Температура воздуха {}°C, ощущается как {}°C".format(weather_data['temp'], weather_data['app_temp']),
             "Относительная влажность {}%".format(weather_data['rh']),
             "Ветер {}, скорость {:.2f} м/с.".format(weather_data['wind_cdir_full'], weather_data['wind_spd']),
-            "Атмосферное давление {} "
+            "Атмосферное давление {} мбар".format(weather_data['pres']),
+            app.get_asset_url(icon_path)
         ]
-        ['''
-            Температура воздуха {}°C, ощущается как {}°C.{}
-            Относительная влажность {}%.\r\n Ветер {}, скорость {:.2f} м/с.
-            '''.format(
-        weather_data['temp'], 
-        weather_data['app_temp'],
-        os.linesep, 
-        weather_data['rh'], 
-        weather_data['wind_cdir_full'], 
-        weather_data['wind_spd']),
-        app.get_asset_url(icon_path)
-        ])
+    )
 
 if __name__ == '__main__':
     app.run_server(debug=True)
