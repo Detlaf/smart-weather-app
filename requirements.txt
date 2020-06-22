@@ -9,10 +9,7 @@ dash-table==4.6.2
 Flask==1.1.2
 Flask-Compress==1.4.0
 future==0.18.2
-<<<<<<< HEAD
 gunicorn==20.0.4
-=======
->>>>>>> a593d269f23608528028ddcd17682316df5eb04c
 idna==2.9
 itsdangerous==1.1.0
 Jinja2==2.11.1
