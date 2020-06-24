@@ -37,7 +37,7 @@ def convert_pressure(press_mbar):
 
 def translate_weather(text):
     url_translate = "https://translate.yandex.net/api/v1.5/tr.json/translate"
-    key_translate = "trnsl.1.1.20200330T171723Z.49e28c919bea6b43.832eb884575945784317a6d01b05cce3eabb7eaf"
+    key_translate = ""
     lang_from_to = "en-ru"
     
     payload = {
