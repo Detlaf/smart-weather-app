@@ -6,7 +6,7 @@ from dash.dependencies import Input, Output, State
 from dash_functions import recommend_outfit, get_weather, convert_pressure, translate_weather
 
 url = "https://api.weatherbit.io/v2.0/current"
-api_key = "3e5551d00a2a4787a898a1ad24fefaeb"
+api_key = ""
 
 app = dash.Dash(__name__)
 server = app.server
